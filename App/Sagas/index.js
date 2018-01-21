@@ -10,6 +10,7 @@ import { LoginTypes } from '../Redux/LoginRedux'
 import { RegisterTypes } from '../Redux/RegisterRedux'
 import { PasswordTypes } from '../Redux/PasswordRedux'
 import { AccountTypes } from '../Redux/AccountRedux'
+import { BankAccountTypes } from '../Redux/BankAccountRedux'
 // ignite-jhipster-saga-redux-import-needle
 
 /* ------------- Sagas ------------- */
@@ -19,6 +20,7 @@ import { login, logout, socialLogin, loginLoad } from './LoginSagas'
 import { register } from './RegisterSagas'
 import { forgotPassword, changePassword } from './PasswordSagas'
 import { getAccount, updateAccount } from './AccountSagas'
+import { getBankAccount, getBankAccounts, updateBankAccount, deleteBankAccount } from './BankAccountSagas'
 // ignite-jhipster-saga-method-import-needle
 
 /* ------------- API ------------- */
@@ -42,6 +44,11 @@ export default function * root () {
     takeLatest(RegisterTypes.REGISTER_REQUEST, register, api),
     takeLatest(PasswordTypes.FORGOT_PASSWORD_REQUEST, forgotPassword, api),
     takeLatest(PasswordTypes.CHANGE_PASSWORD_REQUEST, changePassword, api),
+
+    takeLatest(BankAccountTypes.BANK_ACCOUNT_REQUEST, getBankAccount, api),
+    takeLatest(BankAccountTypes.BANK_ACCOUNT_ALL_REQUEST, getBankAccounts, api),
+    takeLatest(BankAccountTypes.BANK_ACCOUNT_UPDATE_REQUEST, updateBankAccount, api),
+    takeLatest(BankAccountTypes.BANK_ACCOUNT_DELETE_REQUEST, deleteBankAccount, api),
     // ignite-jhipster-saga-redux-connect-needle
 
     takeLatest(AccountTypes.ACCOUNT_REQUEST, getAccount, api),

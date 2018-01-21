@@ -45,6 +45,11 @@ const create = (baseURL = AppConfig.apiUrl) => {
   const getAccount = () => api.get('api/account')
   const updateAccount = (account) => api.post('api/account', account)
   const changePassword = (newPassword) => api.post('api/account/change-password', newPassword, {headers: {'Content-Type': 'text/plain', 'Accept': 'application/json, text/plain, */*'}})
+
+  const getBankAccount = (bankAccountId) => api.get('api/bank-accounts/' + bankAccountId)
+  const getBankAccounts = (options) => api.get('api/bank-accounts', options)
+  const updateBankAccount = (bankAccount) => api.put('api/bank-accounts', bankAccount)
+  const deleteBankAccount = (bankAccountId) => api.delete('api/bank-accounts/' + bankAccountId)
   // ignite-jhipster-api-method-needle
 
   // ------
@@ -61,6 +66,11 @@ const create = (baseURL = AppConfig.apiUrl) => {
   //
   return {
     // a list of the API functions from step 2
+
+    updateBankAccount,
+    getBankAccounts,
+    getBankAccount,
+    deleteBankAccount,
     // ignite-jhipster-api-export-needle
     setAuthToken,
     removeAuthToken,

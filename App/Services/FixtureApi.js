@@ -2,6 +2,30 @@ export default {
   // Functions return fixtures
 
   // entity fixtures
+
+  updateBankAccount: (bankAccount) => {
+    return {
+      ok: true,
+      data: require('../Fixtures/updateBankAccount.json')
+    }
+  },
+  getBankAccounts: () => {
+    return {
+      ok: true,
+      data: require('../Fixtures/getBankAccounts.json')
+    }
+  },
+  getBankAccount: (bankAccountId) => {
+    return {
+      ok: true,
+      data: require('../Fixtures/getBankAccount.json')
+    }
+  },
+  deleteBankAccount: (bankAccountId) => {
+    return {
+      ok: true
+    }
+  },
   // ignite-jhipster-api-fixture-needle
 
   // auth fixtures

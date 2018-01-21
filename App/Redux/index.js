@@ -8,6 +8,7 @@ import ReduxPersist from '../Config/ReduxPersist'
 export const reducers = combineReducers({
   appState: require('./AppStateRedux').reducer,
   chat: require('./ChatRedux').reducer,
+  bankAccounts: require('./BankAccountRedux').reducer,
   // ignite-jhipster-redux-store-import-needle
   account: require('./AccountRedux').reducer,
   login: require('./LoginRedux').reducer,

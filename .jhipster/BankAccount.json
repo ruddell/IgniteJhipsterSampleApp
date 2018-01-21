@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "label",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180121225542",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "bank_account",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}

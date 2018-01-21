@@ -39,7 +39,7 @@ class BankAccountEntityScreen extends React.PureComponent {
     return (
       <TouchableOpacity onPress={NavigationActions.bankAccountEntityDetail.bind(this, { entityId: item.id })}>
         <View style={styles.row}>
-          <Text style={styles.boldLabel}>{item.id}</Text>
+          <Text style={styles.boldLabel}>{item.name} - ${item.amount}</Text>
           {/* <Text style={styles.label}>{item.description}</Text> */}
         </View>
       </TouchableOpacity>

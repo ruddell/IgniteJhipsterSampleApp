@@ -15,7 +15,7 @@ import { AccountTypes } from '../Redux/AccountRedux'
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
-import { login, logout, loginLoad } from './LoginSagas'
+import { login, logout, socialLogin, loginLoad } from './LoginSagas'
 import { register } from './RegisterSagas'
 import { forgotPassword, changePassword } from './PasswordSagas'
 import { getAccount, updateAccount } from './AccountSagas'
@@ -37,6 +37,7 @@ export default function * root () {
     // JHipster accounts
     takeLatest(LoginTypes.LOGIN_LOAD, loginLoad, api),
     takeLatest(LoginTypes.LOGIN_REQUEST, login, api),
+    takeLatest(LoginTypes.SOCIAL_LOGIN_REQUEST, socialLogin, api),
     takeLatest(LoginTypes.LOGOUT_REQUEST, logout, api),
     takeLatest(RegisterTypes.REGISTER_REQUEST, register, api),
     takeLatest(PasswordTypes.FORGOT_PASSWORD_REQUEST, forgotPassword, api),

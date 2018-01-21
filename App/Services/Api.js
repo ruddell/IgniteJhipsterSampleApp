@@ -37,13 +37,14 @@ const create = (baseURL = AppConfig.apiUrl) => {
   //
   const setAuthToken = (userAuth) => api.setHeader('Authorization', 'Bearer ' + userAuth)
   const removeAuthToken = () => api.setHeader('Authorization', '')
+  const socialLogin = (userAuth) => api.post(`social/token?token=${userAuth.token}&secret=${userAuth.secret}&provider=${userAuth.provider}`)
   const login = (userAuth) => api.post('api/authenticate', userAuth)
   const register = (user) => api.post('api/register', user)
-  const forgotPassword = (data) => api.post('api/account/reset_password/init', data, {headers: {'Content-Type': 'text/plain', 'Accept': 'application/json, text/plain, */*'}})
+  const forgotPassword = (data) => api.post('api/account/reset-password/init', data, {headers: {'Content-Type': 'text/plain', 'Accept': 'application/json, text/plain, */*'}})
 
   const getAccount = () => api.get('api/account')
   const updateAccount = (account) => api.post('api/account', account)
-  const changePassword = (newPassword) => api.post('api/account/change_password', newPassword, {headers: {'Content-Type': 'text/plain', 'Accept': 'application/json, text/plain, */*'}})
+  const changePassword = (newPassword) => api.post('api/account/change-password', newPassword, {headers: {'Content-Type': 'text/plain', 'Accept': 'application/json, text/plain, */*'}})
   // ignite-jhipster-api-method-needle
 
   // ------
@@ -63,6 +64,7 @@ const create = (baseURL = AppConfig.apiUrl) => {
     // ignite-jhipster-api-export-needle
     setAuthToken,
     removeAuthToken,
+    socialLogin,
     login,
     register,
     forgotPassword,

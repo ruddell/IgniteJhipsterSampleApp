@@ -1,17 +1,22 @@
 {
+  "name": "JwtApp",
   "createdWith": "2.0.0",
   "examples": "classic",
   "jhipsterDirectory": "../",
   "authType": "jwt",
   "searchEngine": false,
+  "websockets": true,
+  "socialLogin": true,
   "askToOverwrite": true,
   "generators": {
     "entity": "ignite-jhipster",
-    "component": "ignite-ir-boilerplate-2016",
-    "container": "ignite-ir-boilerplate-2016",
-    "listview": "ignite-ir-boilerplate-2016",
-    "redux": "ignite-ir-boilerplate-2016",
-    "saga": "ignite-ir-boilerplate-2016",
-    "screen": "ignite-ir-boilerplate-2016"
+    "upgrade": "ignite-jhipster",
+    "component": "ignite-ir-boilerplate",
+    "container": "ignite-ir-boilerplate",
+    "listview": "ignite-ir-boilerplate",
+    "list": "ignite-ir-boilerplate",
+    "redux": "ignite-ir-boilerplate",
+    "saga": "ignite-ir-boilerplate",
+    "screen": "ignite-ir-boilerplate"
   }
 }

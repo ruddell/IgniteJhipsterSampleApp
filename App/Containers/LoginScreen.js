@@ -6,6 +6,7 @@ import styles from './Styles/LoginScreenStyles'
 import { Images, Metrics } from '../Themes'
 import LoginActions from '../Redux/LoginRedux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
+import SocialLoginContainer from '../Containers/SocialLoginContainer'
 
 class LoginScreen extends React.Component {
   static propTypes = {
@@ -13,8 +14,6 @@ class LoginScreen extends React.Component {
     fetching: PropTypes.bool,
     attemptLogin: PropTypes.func
   }
-
-  isAttempting = false
 
   constructor (props) {
     super(props)
@@ -24,17 +23,16 @@ class LoginScreen extends React.Component {
       visibleHeight: Metrics.screenHeight,
       topLogo: { width: Metrics.screenWidth }
     }
-    this.isAttempting = false
   }
 
   componentWillReceiveProps (newProps) {
     // Did the login attempt complete?
-    if (this.isAttempting) {
+    if (!newProps.fetching) {
       if (newProps.error) {
         if (newProps.error === 'WRONG') {
           Alert.alert('Error', 'Invalid login', [{text: 'OK'}])
         }
-      } else {
+      } else if (newProps.account) {
         NavigationActions.pop()
       }
     }
@@ -42,7 +40,6 @@ class LoginScreen extends React.Component {
 
   handlePressLogin = () => {
     const { username, password } = this.state
-    this.isAttempting = true
     // attempt a login - a saga is listening to pick it up from here.
     this.props.attemptLogin(username, password)
   }
@@ -115,6 +112,7 @@ class LoginScreen extends React.Component {
               </View>
             </TouchableOpacity>
           </View>
+          <SocialLoginContainer />
         </View>
 
       </ScrollView>
@@ -124,6 +122,7 @@ class LoginScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    account: state.account.account,
     fetching: state.login.fetching,
     error: state.login.error
   }

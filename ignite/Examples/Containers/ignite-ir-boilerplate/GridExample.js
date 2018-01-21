@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { View, Text, ListView } from 'react-native'
 import { connect } from 'react-redux'
 
+// For empty lists
+// import AlertMessage from '../Components/AlertMessage'
+
 // Styles
-import styles from './Styles/RowExampleStyle'
+import styles from './Styles/GridExampleStyle'
 
-class RowExample extends React.Component {
-
+class GridExample extends Component {
   constructor (props) {
     super(props)
     // If you need scroll to bottom, consider http://bit.ly/2bMQ2BZ
@@ -71,9 +73,9 @@ class RowExample extends React.Component {
   * e.g.
     componentWillReceiveProps (newProps) {
       if (newProps.someData) {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(newProps.someData)
-        })
+        this.setState(prevState => ({
+          dataSource: prevState.dataSource.cloneWithRows(newProps.someData)
+        }))
       }
     }
   *************************************************************/
@@ -118,4 +120,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RowExample)
+export default connect(mapStateToProps, mapDispatchToProps)(GridExample)

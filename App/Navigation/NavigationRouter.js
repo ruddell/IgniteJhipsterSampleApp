@@ -11,6 +11,7 @@ import EntitiesScreen from '../Containers/EntitiesScreen'
 import SettingsScreen from '../Containers/SettingsScreen'
 import ChangePasswordScreen from '../Containers/ChangePasswordScreen'
 import ForgotPasswordScreen from '../Containers/ForgotPasswordScreen'
+import ChatScreen from '../Containers/ChatScreen'
 // ignite-jhipster-navigation-import-needle
 
 /* **************************
@@ -21,15 +22,21 @@ class NavigationRouter extends Component {
   render () {
     return (
       <Router>
-        <Drawer headerTintColor={'white'} contentComponent={DrawerContent} navigationBarStyle={styles.navBar} titleStyle={styles.title} >
+        <Drawer headerTintColor={'white'} contentComponent={DrawerContent} navigationBarStyle={styles.navBar} titleStyle={styles.title}
+          // these lines are a workaround for a react-navigation issue, remove after upgrading >4.0.0-beta.24
+          drawerOpenRoute='DrawerOpen'
+          drawerCloseRoute='DrawerClose'
+          drawerToggleRoute='DrawerToggle'
+        >
           <Stack key='root'>
             <Scene initial key='launchScreen' component={LaunchScreen} title='Welcome' />
-            <Scene key='login' component={LoginScreen} title='Login' hideNavBar />
-            <Scene key='register' component={RegisterScreen} title='Register' back />
-            <Scene key='entities' component={EntitiesScreen} title='Entities' back />
-            <Scene key='settings' component={SettingsScreen} title='Settings' back />
-            <Scene key='changePassword' component={ChangePasswordScreen} title='Change Password' back />
-            <Scene key='forgotPassword' component={ForgotPasswordScreen} title='Forgot Password' back />
+            <Scene key='login' component={LoginScreen} title='Login' hideNavBar drawerLockMode='locked-closed' />
+            <Scene key='register' component={RegisterScreen} title='Register' back drawerLockMode='locked-closed' />
+            <Scene key='entities' component={EntitiesScreen} title='Entities' back drawerLockMode='locked-closed' />
+            <Scene key='settings' component={SettingsScreen} title='Settings' back drawerLockMode='locked-closed' />
+            <Scene key='changePassword' component={ChangePasswordScreen} title='Change Password' back drawerLockMode='locked-closed' />
+            <Scene key='forgotPassword' component={ForgotPasswordScreen} title='Forgot Password' back drawerLockMode='locked-closed' />
+            <Scene key='chat' component={ChatScreen} title='Chat' back />
             {/* ignite-jhipster-navigation-needle */}
           </Stack>
         </Drawer>

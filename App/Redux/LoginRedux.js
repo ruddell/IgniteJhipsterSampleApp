@@ -8,6 +8,7 @@ const { Types, Creators } = createActions({
   loginFailure: ['error'],
   logoutRequest: null,
   logoutSuccess: null,
+  socialLoginRequest: ['token', 'secret', 'provider'],
   loginLoad: [],
   loginLoadSuccess: []
 })
@@ -29,6 +30,8 @@ export const INITIAL_STATE = Immutable({
 // we're attempting to login
 export const request = (state) => state.merge({ fetching: true })
 
+// we're attempting to social login
+export const socialLoginRequest = (state) => state.merge({ fetching: true })
 // we've successfully logged in
 export const success = (state, data) => {
   const { authToken } = data
@@ -54,6 +57,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.LOGIN_REQUEST]: request,
   [Types.LOGIN_SUCCESS]: success,
   [Types.LOGIN_FAILURE]: failure,
+  [Types.SOCIAL_LOGIN_REQUEST]: socialLoginRequest,
   [Types.LOGIN_LOAD]: load,
   [Types.LOGIN_LOAD_SUCCESS]: loadSuccess,
   [Types.LOGOUT_REQUEST]: logoutRequest,

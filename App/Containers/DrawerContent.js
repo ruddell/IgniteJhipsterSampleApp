@@ -40,6 +40,10 @@ class DrawerContent extends Component {
     NavigationActions.drawerClose()
     NavigationActions.changePassword()
   }
+  handlePressChat = () => {
+    NavigationActions.drawerClose()
+    NavigationActions.chat()
+  }
   handlePressLogout = () => {
     NavigationActions.drawerClose()
     this.props.logout()
@@ -54,6 +58,7 @@ class DrawerContent extends Component {
         {!this.props.loggedIn && (<DrawerButton text='Forgot Password' onPress={this.handlePressForgotPassword} />)}
 
         {this.props.loggedIn && (<DrawerButton text='Entities' onPress={this.handlePressEntities} />)}
+        {this.props.loggedIn && (<DrawerButton text='Chat' onPress={this.handlePressChat} />)}
         {this.props.loggedIn && (<DrawerButton text='Settings' onPress={this.handlePressSettings} />)}
         {this.props.loggedIn && (<DrawerButton text='Change Password' onPress={this.handlePressChangePassword} />)}
         {this.props.loggedIn && (<DrawerButton text='Logout' onPress={this.handlePressLogout} />)}

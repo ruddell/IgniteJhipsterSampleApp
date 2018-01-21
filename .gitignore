@@ -54,3 +54,4 @@ buck-out/
 coverage/
 # Misc
 #.env
+ios/Index/DataStore

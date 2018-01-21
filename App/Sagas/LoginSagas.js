@@ -1,6 +1,7 @@
 import { call, put, select } from 'redux-saga/effects'
 import LoginActions from '../Redux/LoginRedux'
 import AccountActions from '../Redux/AccountRedux'
+import WebsocketService from '../Services/WebsocketService'
 
 export const selectAuthToken = (state) => state.login.authToken
 // attempts to login
@@ -18,6 +19,23 @@ export function * login (api, { username, password }) {
     yield call(api.setAuthToken, response.data.id_token)
     yield put(LoginActions.loginSuccess(response.data.id_token))
     yield put(AccountActions.accountRequest())
+    WebsocketService.setToken(response.data.id_token)
+    yield put({ type: 'RELOGIN_OK' })
+  } else {
+    yield put(LoginActions.loginFailure('WRONG'))
+  }
+}
+
+// attempts to social login
+export function * socialLogin (api, authObj) {
+  const response = yield call(api.socialLogin, authObj)
+
+  // success?
+  if (response.ok) {
+    yield call(api.setAuthToken, response.data.id_token)
+    yield put(LoginActions.loginSuccess(response.data.id_token))
+    yield put(AccountActions.accountRequest())
+    WebsocketService.setToken(response.data.id_token)
     yield put({ type: 'RELOGIN_OK' })
   } else {
     yield put(LoginActions.loginFailure('WRONG'))
@@ -37,6 +55,7 @@ export function * loginLoad (api) {
   // only set the token if we have it
   if (authToken) {
     yield call(api.setAuthToken, authToken)
+    WebsocketService.setToken(authToken)
   }
   yield put(LoginActions.loginLoadSuccess())
 }

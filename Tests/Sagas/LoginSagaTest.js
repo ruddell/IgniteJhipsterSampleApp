@@ -25,7 +25,6 @@ test('login success path', () => {
   // Close the relogin popup if needed
   expect(step()).toEqual(put({ type: 'RELOGIN_OK' }))
 })
-
 test('login failure path', () => {
   const authObj = {
     username: 'user',
@@ -47,14 +46,13 @@ test('login load path with no token', () => {
   // No token was found so call success
   expect(step()).toEqual(put(LoginActions.loginLoadSuccess()))
 })
-
 test('login load path with a token', () => {
-  const accessToken = { access_token: 'hi' }
+  const accessToken = 'sample-access-token'
   const step = stepper(loginLoad(FixtureAPI))
   // Select the token from redux and set it
   expect(step(accessToken)).toEqual(select(selectAuthToken))
   expect(step(accessToken)).toEqual(call(FixtureAPI.setAuthToken, accessToken))
-  FixtureAPI.setAuthToken({authToken: 'hi'})
+  FixtureAPI.setAuthToken(accessToken)
   // The token has been set so call success
   expect(step()).toEqual(put(LoginActions.loginLoadSuccess()))
 })

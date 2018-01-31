@@ -17,6 +17,7 @@ class BankAccountEntityEditScreen extends React.Component {
     super(props)
     this.state = {
       formModel: t.struct({
+        id: t.maybe(t.Number),
         name: t.String,
         amount: t.Number,
         label: t.maybe(t.String)
@@ -24,6 +25,9 @@ class BankAccountEntityEditScreen extends React.Component {
       formValue: this.props.bankAccount,
       formOptions: {
         fields: {
+          id: {
+            hidden: true
+          },
           name: {
             returnKeyType: 'next',
             onSubmitEditing: () => this.refs.form.getComponent('amount').refs.input.focus()

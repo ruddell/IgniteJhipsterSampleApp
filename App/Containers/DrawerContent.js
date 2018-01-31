@@ -28,10 +28,6 @@ class DrawerContent extends Component {
     NavigationActions.drawerClose()
     NavigationActions.forgotPassword()
   }
-  handlePressEntities = () => {
-    NavigationActions.drawerClose()
-    NavigationActions.entities()
-  }
   handlePressSettings = () => {
     NavigationActions.drawerClose()
     NavigationActions.settings()
@@ -39,6 +35,10 @@ class DrawerContent extends Component {
   handlePressChangePassword = () => {
     NavigationActions.drawerClose()
     NavigationActions.changePassword()
+  }
+  handlePressEntities = () => {
+    NavigationActions.drawerClose()
+    NavigationActions.entities()
   }
   handlePressChat = () => {
     NavigationActions.drawerClose()

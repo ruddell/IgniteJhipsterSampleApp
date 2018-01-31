@@ -74,8 +74,8 @@ const create = (baseURL = AppConfig.apiUrl) => {
     // ignite-jhipster-api-export-needle
     setAuthToken,
     removeAuthToken,
-    socialLogin,
     login,
+    socialLogin,
     register,
     forgotPassword,
     getAccount,

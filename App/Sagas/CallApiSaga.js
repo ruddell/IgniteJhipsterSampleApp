@@ -6,11 +6,12 @@ import { Actions as NavigationActions } from 'react-native-router-flux'
 // if login fails, it will return the error
 export function * callApi (apiCall) {
   const response = yield apiCall
-  if (!isBadToken(response)) {
+  if (!isUnauthorized(response)) {
     return response
   }
   // this triggers your UI to show a login form
   yield put({ type: 'RELOGIN' })
+
   NavigationActions.login()
   const action = yield take(['RELOGIN_OK', 'RELOGIN_ABORT'])
 
@@ -22,6 +23,6 @@ export function * callApi (apiCall) {
   return yield apiCall
 }
 
-function isBadToken (resp) {
+function isUnauthorized (resp) {
   return resp.status === 401
 }

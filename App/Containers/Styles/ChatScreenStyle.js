@@ -40,5 +40,9 @@ export default StyleSheet.create({
   messageInput: {
     padding: 10,
     color: 'white',
+    alignItems: 'flex-end',
+    bottom: 0,
+    left: 0,
+    right: 0
   }
 })

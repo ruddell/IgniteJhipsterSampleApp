@@ -25,7 +25,6 @@ export function * login (api, { username, password }) {
     yield put(LoginActions.loginFailure('WRONG'))
   }
 }
-
 // attempts to social login
 export function * socialLogin (api, authObj) {
   const response = yield call(api.socialLogin, authObj)
@@ -41,7 +40,6 @@ export function * socialLogin (api, authObj) {
     yield put(LoginActions.loginFailure('WRONG'))
   }
 }
-
 // attempts to logout
 export function * logout (api) {
   yield call(api.removeAuthToken)

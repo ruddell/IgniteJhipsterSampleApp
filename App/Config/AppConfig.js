@@ -2,6 +2,7 @@
 
 export default {
   apiUrl: 'https://ignite-jhipster.jruddell.com/',
+  appUrlScheme: 'jwtapp',
   // these are sample values and will not work by default
   social: {
     google: {

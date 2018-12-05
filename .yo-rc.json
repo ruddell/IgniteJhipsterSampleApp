@@ -1,0 +1,45 @@
+{
+  "generator-jhipster": {
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "enableHibernateCache": true,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": true,
+    "jhiPrefix": "jhi",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "messageBroker": false,
+    "nativeLanguage": "en",
+    "packageName": "com.mycompany.myapp",
+    "packageFolder": "com/mycompany/myapp",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "serviceDiscoveryType": false,
+    "skipClient": true,
+    "skipServer": false,
+    "testFrameworks": [],
+    "websocket": false,
+    "authenticationType": "jwt",
+    "baseName": "jhipster",
+    "buildTool": "maven",
+    "skipUserManagement": false,
+    "clientPackageManager": "npm",
+    "applicationType": "monolith",
+    "cacheProvider": "ehcache",
+    "clientFramework": "angularX",
+    "serverPort": "8080",
+    "useSass": true
+  },
+  "entities": [
+    "Region",
+    "Country",
+    "Location",
+    "Department",
+    "Task",
+    "Employee",
+    "Job",
+    "JobHistory"
+  ]
+}

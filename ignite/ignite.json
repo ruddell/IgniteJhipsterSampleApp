@@ -1,22 +1,17 @@
 {
   "name": "JwtApp",
-  "createdWith": "2.0.0",
+  "createdWith": "2.1.2",
+  "boilerplate": "ignite-jhipster",
   "examples": "classic",
   "jhipsterDirectory": "../",
   "authType": "jwt",
   "searchEngine": false,
-  "websockets": true,
-  "socialLogin": true,
-  "askToOverwrite": true,
+  "websockets": false,
+  "detox": true,
+  "askToOverwrite": false,
   "generators": {
     "entity": "ignite-jhipster",
-    "upgrade": "ignite-jhipster",
-    "component": "ignite-ir-boilerplate",
-    "container": "ignite-ir-boilerplate",
-    "listview": "ignite-ir-boilerplate",
-    "list": "ignite-ir-boilerplate",
-    "redux": "ignite-ir-boilerplate",
-    "saga": "ignite-ir-boilerplate",
-    "screen": "ignite-ir-boilerplate"
+    "import-jdl": "ignite-jhipster",
+    "upgrade": "ignite-jhipster"
   }
 }

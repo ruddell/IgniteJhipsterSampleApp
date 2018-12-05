@@ -1,34 +1,45 @@
 {
-  "generator-jhipster": {
-    "promptValues": {
-      "packageName": "com.mycompany.myapp"
-    },
-    "jhipsterVersion": "4.13.3",
-    "baseName": "backend",
-    "packageName": "com.mycompany.myapp",
-    "packageFolder": "com/mycompany/myapp",
-    "serverPort": "8080",
-    "authenticationType": "jwt",
-    "cacheProvider": "ehcache",
-    "enableHibernateCache": true,
-    "websocket": "spring-websocket",
-    "databaseType": "sql",
-    "devDatabaseType": "h2Disk",
-    "prodDatabaseType": "mysql",
-    "searchEngine": false,
-    "messageBroker": false,
-    "serviceDiscoveryType": false,
-    "buildTool": "maven",
-    "enableSocialSignIn": true,
-    "enableSwaggerCodegen": false,
-    "jwtSecretKey": "2909b0782cfa4b6f6774b3acd91d5355881e1a84",
-    "clientFramework": "angularX",
-    "useSass": false,
-    "clientPackageManager": "yarn",
-    "applicationType": "monolith",
-    "testFrameworks": [],
-    "jhiPrefix": "jhi",
-    "enableTranslation": false,
-    "herokuAppName": "ignite-jhipster-social"
-  }
+	"generator-jhipster": {
+		"databaseType": "sql",
+		"devDatabaseType": "h2Disk",
+		"enableHibernateCache": true,
+		"enableSwaggerCodegen": false,
+		"enableTranslation": true,
+		"jhiPrefix": "jhi",
+		"languages": [
+			"en",
+			"fr"
+		],
+		"messageBroker": false,
+		"nativeLanguage": "en",
+		"packageName": "com.mycompany.myapp",
+		"packageFolder": "com/mycompany/myapp",
+		"prodDatabaseType": "mysql",
+		"searchEngine": false,
+		"serviceDiscoveryType": false,
+		"skipClient": true,
+		"skipServer": false,
+		"testFrameworks": [],
+		"websocket": false,
+		"authenticationType": "jwt",
+		"baseName": "jhipster",
+		"buildTool": "maven",
+		"skipUserManagement": false,
+		"clientPackageManager": "npm",
+		"applicationType": "monolith",
+		"cacheProvider": "ehcache",
+		"clientFramework": "angularX",
+		"serverPort": "8080",
+		"useSass": true
+	},
+	"entities": [
+		"Region",
+		"Country",
+		"Location",
+		"Department",
+		"Task",
+		"Employee",
+		"Job",
+		"JobHistory"
+	]
 }
